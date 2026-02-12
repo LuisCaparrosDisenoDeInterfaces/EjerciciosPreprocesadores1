@@ -1,0 +1,42 @@
+@use "sass:color";
+@use "sass:math";
+
+$h: math.random(360);
+$s: math.random(100);
+$l: math.random(100);
+
+
+$base: hsl($h, $s, $l);
+
+$complementary: color.complement($base);
+
+$base-light: color.adjust($base, $lightness: $l * 0.5);
+
+$base-dark: color.adjust($base, $lightness: $l * 1.1);
+
+$success: color.mix($base, #198754, $weight: 50%);
+
+$primary: $base;
+$secondary: $base-light;
+
+h1 {
+    background-color: $base;
+};
+
+.d1 {
+    background-color: $base-light;
+};
+
+.d2 {
+    background-color: $base-dark;
+};
+
+.d3 {
+    background-color: $success;
+}
+
+.d4 {
+    background-color: $complementary;
+}
+
+
